@@ -1,0 +1,31 @@
+name: sky_meditation
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  # audioplayer: ^0.8.1
+  # assets_audio_player: ^2.0.13+1
+  audioplayers: ^0.17.3
+
+# dev_dependencies:
+  # flutter_test:
+  #   sdk: flutter
+  # integration_test:
+  #   sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
