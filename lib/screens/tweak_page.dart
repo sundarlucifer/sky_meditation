@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:sky_meditation/screens/screens.dart';
 import 'package:sky_meditation/utils/utils.dart';
-import '../models/models.dart';
+import 'package:sound_mode/permission_handler.dart';
+import 'package:sound_mode/sound_mode.dart';
+import 'package:sound_mode/utils/sound_profiles.dart';
+import 'package:sky_meditation/models/models.dart';
 
 class TweakPage extends StatefulWidget {
   const TweakPage({Key key}) : super(key: key);
@@ -40,8 +41,40 @@ class _TweakPageState extends State<TweakPage> {
                 child: Text('Start Meditation'),
                 onPressed: () {
                   meditationHolderUtil.meditation = meditation;
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => PlayerPage()));
+                  SoundMode.setSoundMode(Profiles.SILENT).then((_) {
+                    _showSnackbar('Phone set to Silent mode!');
+                    Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (context) => PlayerPage()));
+                  }).onError((e, _) async {
+                    bool isGranted = await PermissionHandler.permissionsGranted;
+                    showDialog(
+                        context: context,
+                        builder: (_) => AlertDialog(
+                              content: Text(
+                                "Unable to put your phone in SILENT mode." +
+                                    (isGranted
+                                        ? ''
+                                        : 'Check app permissions to enable this feature.'),
+                              ),
+                              actions: [
+                                if (!isGranted)
+                                  TextButton(
+                                    child: Text('Enable Premission'),
+                                    onPressed: () {
+                                      PermissionHandler
+                                          .openDoNotDisturbSetting();
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                TextButton(
+                                  child: Text('Proceed anyway'),
+                                  onPressed: () => Navigator.of(context)
+                                      .pushReplacement(MaterialPageRoute(
+                                          builder: (context) => PlayerPage())),
+                                )
+                              ],
+                            ));
+                  });
                 },
               ),
             ),
@@ -70,6 +103,13 @@ class _TweakPageState extends State<TweakPage> {
       );
     }
     return sections;
+  }
+
+  _showSnackbar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(message),
+      duration: Duration(seconds: 1),
+    ));
   }
 }
 

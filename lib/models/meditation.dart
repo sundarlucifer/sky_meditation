@@ -1,8 +1,9 @@
 class Meditation {
   final String title;
   final List<Section> sections;
+  final String duration;
 
-  Meditation(this.title, this.sections);
+  Meditation(this.title, this.sections, this.duration);
 }
 
 class Section {

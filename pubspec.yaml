@@ -13,10 +13,14 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-
-  # audioplayer: ^0.8.1
-  # assets_audio_player: ^2.0.13+1
+  
   audioplayers: ^0.17.3
+  sound_mode: ^1.0.2
+
+  firebase_core: ^0.4.4+3
+  firebase_auth: ^0.15.5+3
+  google_sign_in: ^4.3.0
+  cloud_firestore: ^0.13.6
 
 # dev_dependencies:
   # flutter_test:

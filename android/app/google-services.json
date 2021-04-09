@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1052143860626",
+    "project_id": "sky-meditation",
+    "storage_bucket": "sky-meditation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052143860626:android:8d38a433bb96895050df4b",
+        "android_client_info": {
+          "package_name": "com.example.sky_meditation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052143860626-6nvha2n04q19kep4j4tq03m4665m25qb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sky_meditation",
+            "certificate_hash": "258eeb57749fe685281d98298d35ad57b64d0364"
+          }
+        },
+        {
+          "client_id": "1052143860626-362fkectd6n4av2848nbu226tiptjaqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe95yKL_6qZNwpV4f0j4MWaTx-hLGafbw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052143860626-362fkectd6n4av2848nbu226tiptjaqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
