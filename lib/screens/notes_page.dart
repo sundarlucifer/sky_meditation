@@ -48,7 +48,7 @@ class _NotesPageState extends State<NotesPage> {
   _buildCard(Map note) {
     return ListTile(
       title: Text(note['title']),
-      subtitle: Text((note['content'] as String).substring(0, 50) + '...'),
+      subtitle: Text(((note['content'] as String)+' '*50).substring(0, 50).trim()+ '...'),
       trailing: Text((note['written_on'] as Timestamp)
           .toDate()
           .toString()
